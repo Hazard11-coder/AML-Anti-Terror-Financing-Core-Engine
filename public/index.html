@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Synaptics.Systems — AML / CTF Core Engine</title>
+    <link rel="stylesheet" href="../src/styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="wrap brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>Synaptics.Systems — AML / Anti-Terror Financing Core</h1>
+          <div class="sub">Authority Discrepancy Anchoring • Vessel Drift Detection • Tamper-Evident Audit</div>
+        </div>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <div class="callout">
+        Quantum-grade compliance stack with anchored metadata, vessel drift detection, and live rule evaluation. Use the panels below to exercise the layers end-to-end.
+      </div>
+      <div class="grid">
+        <section class="card">
+          <div class="titleRow">
+            <h2 class="title">AML Operational Console <span class="chip">CORE</span></h2>
+            <div id="coreHealth" class="status ok">ONLINE</div>
+          </div>
+
+          <div class="kpis">
+            <div class="kpi">
+              <div class="num" id="kpiUsers">0</div>
+              <div class="lbl">Users Evaluated</div>
+            </div>
+            <div class="kpi">
+              <div class="num" id="kpiTxns">0</div>
+              <div class="lbl">Transactions Evaluated</div>
+            </div>
+            <div class="kpi">
+              <div class="num" id="kpiFlags">0</div>
+              <div class="lbl">Review / Blocks</div>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <h3 class="title">User Risk Check <span class="chip">KYC/PEP/Sanctions</span></h3>
+          <div class="row">
+            <div class="col">
+              <label>User ID</label>
+              <input id="userId" value="u1" />
+            </div>
+            <div class="col">
+              <label>KYC Verified</label>
+              <select id="kycVerified">
+                <option value="true">true</option>
+                <option value="false" selected>false</option>
+              </select>
+            </div>
+            <div class="col">
+              <label>Geo Risk</label>
+              <select id="geoRisk">
+                <option>LOW</option>
+                <option>MEDIUM</option>
+                <option>HIGH</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row" style="margin-top: 8px">
+            <div class="col">
+              <label>PEP Match</label>
+              <select id="pepMatch">
+                <option value="false" selected>false</option>
+                <option value="true">true</option>
+              </select>
+            </div>
+            <div class="col">
+              <label>Sanctions Match</label>
+              <select id="sanctionsMatch">
+                <option value="false" selected>false</option>
+                <option value="true">true</option>
+              </select>
+            </div>
+            <div class="col">
+              <label>Intent</label>
+              <select id="userIntent">
+                <option>LOGIN</option>
+                <option>DEPOSIT</option>
+                <option selected>WITHDRAW</option>
+                <option>TRANSFER</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="margin-top: 10px; display: flex; gap: 8px">
+            <button class="btn" id="runUser">Run User Check</button>
+            <button class="btn ghost" id="clearUser">Reset</button>
+          </div>
+
+          <div style="margin-top: 10px">
+            <div class="mono" id="userOut">Awaiting user evaluation…</div>
+          </div>
+
+          <div class="divider"></div>
+
+          <h3 class="title">Transaction Risk Check <span class="chip">Rules + Context</span></h3>
+
+          <div class="row">
+            <div class="col">
+              <label>Transaction ID</label>
+              <input id="txnId" value="t1" />
+            </div>
+            <div class="col">
+              <label>Amount (fiat eq.)</label>
+              <input id="txnAmount" type="number" value="12000" />
+            </div>
+            <div class="col">
+              <label>Asset Type</label>
+              <select id="assetType">
+                <option>NORMAL</option>
+                <option>UNHOSTED_WALLET</option>
+                <option>PRIVACY_COIN</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row" style="margin-top: 8px">
+            <div class="col">
+              <label>Velocity High</label>
+              <select id="velHigh">
+                <option value="false" selected>false</option>
+                <option value="true">true</option>
+              </select>
+            </div>
+            <div class="col">
+              <label>Structuring Pattern</label>
+              <select id="structuring">
+                <option value="false" selected>false</option>
+                <option value="true">true</option>
+              </select>
+            </div>
+            <div class="col">
+              <label>Mixer Exposure</label>
+              <select id="mixerExp">
+                <option value="false" selected>false</option>
+                <option value="true">true</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="margin-top: 10px; display: flex; gap: 8px">
+            <button class="btn" id="runTxn">Run Transaction Check</button>
+            <button class="btn ghost" id="clearTxn">Reset</button>
+          </div>
+
+          <div style="margin-top: 10px">
+            <div class="mono" id="txnOut">Awaiting transaction evaluation…</div>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="titleRow">
+            <h2 class="title">Anchoring + Discrepancy Layer <span class="chip">AUTHORITY / VESSEL</span></h2>
+            <div id="discrepBadge" class="status warn">NO ACTIONS YET</div>
+          </div>
+
+          <h3 class="title" style="margin-top: 10px">Authority Confirmation Protocol</h3>
+          <div class="hint">
+            Multi-authority quorum for sensitive events. Conflicts produce discrepancy flags that feed AML scoring.
+          </div>
+
+          <div class="row" style="margin-top: 8px">
+            <div class="col">
+              <label>Sensitive Action Type</label>
+              <select id="actionType">
+                <option>LARGE_WITHDRAWAL_OVERRIDE</option>
+                <option>MANUAL_UNFREEZE</option>
+                <option>HIGH_RISK_ONBOARD</option>
+              </select>
+            </div>
+            <div class="col">
+              <label>Target User</label>
+              <input id="actionUser" value="u1" />
+            </div>
+          </div>
+
+          <label style="margin-top: 8px; display: block">Action Meta (JSON)</label>
+          <textarea id="actionMeta">{ "limit": 25000 }</textarea>
+
+          <div style="margin-top: 10px; display: flex; gap: 8px">
+            <button class="btn" id="proposeAction">Propose Action</button>
+            <button class="btn ghost" id="resolveAction">Resolve</button>
+          </div>
+
+          <div class="row" style="margin-top: 8px">
+            <div class="col">
+              <label>Authority ID</label>
+              <select id="authId">
+                <option>authA</option>
+                <option>authB</option>
+                <option>authC</option>
+              </select>
+            </div>
+            <div class="col">
+              <label>Decision</label>
+              <select id="authDecision">
+                <option>APPROVE</option>
+                <option>REJECT</option>
+              </select>
+            </div>
+          </div>
+
+          <label style="margin-top: 8px; display: block">Decision Note</label>
+          <input id="authNote" placeholder="note..." />
+
+          <div style="margin-top: 8px; display: flex; gap: 8px">
+            <button class="btn" id="submitApproval">Submit Approval</button>
+            <button class="btn ghost" id="clearAuth">Clear</button>
+          </div>
+
+          <div style="margin-top: 10px">
+            <div class="mono" id="authOut">No pending action.</div>
+          </div>
+
+          <div class="divider"></div>
+
+          <h3 class="title">Vessel Discrepancy Monitor</h3>
+          <div class="hint">“Vessel” = any system boundary where state might drift (server, shard, cache, client ledger).</div>
+
+          <div class="row" style="margin-top: 8px">
+            <div class="col">
+              <label>Vessel ID</label>
+              <input id="vesselId" value="api-1" />
+            </div>
+            <div class="col">
+              <label>State JSON</label>
+              <input id="vesselState" value='{ "ledgerTip":"abc", "balances":{"u1":100} }' />
+            </div>
+          </div>
+
+          <div style="margin-top: 8px; display: flex; gap: 8px">
+            <button class="btn" id="heartbeat">Heartbeat</button>
+            <button class="btn ghost" id="clearVessel">Reset</button>
+          </div>
+
+          <div style="margin-top: 10px">
+            <div class="mono" id="vesselOut">No vessel heartbeats yet.</div>
+          </div>
+
+          <div class="divider"></div>
+
+          <h3 class="title">Audit Chain Viewer</h3>
+          <div class="small">Hash-chained events. If a log entry is changed, chain verify fails.</div>
+
+          <div style="margin-top: 8px; display: flex; gap: 8px">
+            <button class="btn ghost" id="refreshAudit">Refresh Audit</button>
+            <button class="btn ghost" id="verifyAudit">Verify</button>
+          </div>
+
+          <div style="margin-top: 10px">
+            <div class="mono" id="auditOut">Audit ready.</div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script type="module" src="../src/main.js"></script>
+  </body>
+</html>
